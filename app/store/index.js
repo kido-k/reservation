@@ -5,8 +5,11 @@ export const state = () => ({
 })
 
 export const getters = {
-  isAuthenticated(state) {
-    return !!state.user
+  userData(state) {
+    return state.user
+  },
+  isAuth(state) {
+    return state.user !== null
   }
 }
 
