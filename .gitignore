@@ -84,3 +84,4 @@ dist
 sw.*
 
 .history
+.env
