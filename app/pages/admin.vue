@@ -1,30 +1,33 @@
 <template>
   <section v-if="loaded" class="wrapper">
-    <Title class="content"></Title>
+    <FormTitle class="content"></FormTitle>
     <Name class="content"></Name>
     <NameKana class="content"></NameKana>
     <Adress class="content"></Adress>
     <Telephone class="content"></Telephone>
     <MailAdress class="content"></MailAdress>
+    <Finish class="content"></Finish>
   </section>
 </template>
 
 <script>
-import Title from '~/components/admin/Title.vue'
+import FormTitle from '~/components/admin/FormTitle.vue'
 import Name from '~/components/admin/Name.vue'
 import NameKana from '~/components/admin/Name_Kana.vue'
 import Adress from '~/components/admin/Adress.vue'
 import Telephone from '~/components/admin/Telephone.vue'
 import MailAdress from '~/components/admin/MailAdress.vue'
+import Finish from '~/components/admin/Finish.vue'
 
 export default {
   components: {
-    Title,
+    FormTitle,
     Name,
     NameKana,
     Adress,
     Telephone,
-    MailAdress
+    MailAdress,
+    Finish
   },
   data() {
     return {
