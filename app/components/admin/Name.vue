@@ -6,7 +6,11 @@
       </div>
       <v-layout class="name__content">
         <v-flex xs12 sm3 class="check-box">
-          <v-checkbox v-model="displayName" class="mx-2"></v-checkbox>
+          <v-checkbox
+            v-model="displayName"
+            class="mx-2"
+            color="blue"
+          ></v-checkbox>
         </v-flex>
         <v-flex xs12 sm6>
           <v-layout>

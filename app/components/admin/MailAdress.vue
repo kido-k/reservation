@@ -7,7 +7,11 @@
         </div>
         <v-layout class="mail__content">
           <v-flex xs12 sm3 class="check-box">
-            <v-checkbox v-model="diplayMail" class="mx-2"></v-checkbox>
+            <v-checkbox
+              v-model="diplayMail"
+              class="mx-2"
+              color="blue"
+            ></v-checkbox>
           </v-flex>
           <v-flex xs12 sm6>
             <label for="">メールアドレス</label>

@@ -7,7 +7,11 @@
         </div>
         <v-layout class="adress-contents">
           <v-flex xs12 sm3 class="check-box">
-            <v-checkbox v-model="diplayAdress" class="mx-2"></v-checkbox>
+            <v-checkbox
+              v-model="diplayAdress"
+              class="mx-2"
+              color="blue"
+            ></v-checkbox>
           </v-flex>
           <v-flex xs12 sm6>
             <v-layout class="zip-code__content">
