@@ -4,26 +4,36 @@
       <div>
         <span>名前（カナ）</span>
       </div>
-      <v-layout class="name-input-field">
-        <v-flex xs12 sm6 md3 class="family-name">
-          <v-text-field
-            class="text__field"
-            :placeholder="familyNamePlaceHolder"
-            flat
-            solo
-            hide-details
-            >{{ familyNameValue }}</v-text-field
-          >
+      <v-layout class="name__content">
+        <v-flex xs12 sm3 class="check-box">
+          <v-checkbox v-model="displayNameKana" class="mx-2"></v-checkbox>
         </v-flex>
-        <v-flex xs12 sm6 md3 class="first-name">
-          <v-text-field
-            class="text__field"
-            :placeholder="firstNamePlaceHolder"
-            flat
-            solo
-            hide-details
-            >{{ firstNameValue }}</v-text-field
-          >
+        <v-flex xs12 sm6>
+          <v-layout>
+            <div>
+              <label for="">セイ</label>
+              <v-text-field
+                class="text__field"
+                :placeholder="familyNamePlaceHolder"
+                flat
+                solo
+                hide-details
+                >{{ familyNameValue }}</v-text-field
+              >
+            </div>
+            <div class="name-margin"></div>
+            <div>
+              <label for="">メイ</label>
+              <v-text-field
+                class="text__field"
+                :placeholder="firstNamePlaceHolder"
+                flat
+                solo
+                hide-details
+                >{{ firstNameValue }}</v-text-field
+              >
+            </div>
+          </v-layout>
         </v-flex>
       </v-layout>
     </v-card>
@@ -34,6 +44,7 @@
 export default {
   data() {
     return {
+      displayNameKana: true,
       familyNameValue: '',
       familyNamePlaceHolder: 'タナカ',
       firstNameValue: '',
@@ -49,13 +60,10 @@ export default {
   padding: 20px;
   border-radius: 5px;
 }
-.name-input-field {
-  justify-content: center;
+.name-margin {
+  margin: 0 40px 0 0;
 }
-.family-name {
-  margin: 10px 20px;
-}
-.first-name {
+.name__content {
   margin: 10px 20px;
 }
 .text__field {

@@ -1,21 +1,30 @@
 <template>
   <section v-if="loaded" class="wrapper">
-    <Title></Title>
-    <Name></Name>
-    <NameKANA></NameKANA>
+    <Title class="content"></Title>
+    <Name class="content"></Name>
+    <NameKana class="content"></NameKana>
+    <Adress class="content"></Adress>
+    <Telephone class="content"></Telephone>
+    <MailAdress class="content"></MailAdress>
   </section>
 </template>
 
 <script>
 import Title from '~/components/admin/Title.vue'
 import Name from '~/components/admin/Name.vue'
-import NameKANA from '~/components/admin/Name_KANA.vue'
+import NameKana from '~/components/admin/Name_Kana.vue'
+import Adress from '~/components/admin/Adress.vue'
+import Telephone from '~/components/admin/Telephone.vue'
+import MailAdress from '~/components/admin/MailAdress.vue'
 
 export default {
   components: {
     Title,
     Name,
-    NameKANA
+    NameKana,
+    Adress,
+    Telephone,
+    MailAdress
   },
   data() {
     return {
@@ -47,8 +56,8 @@ export default {
   background-color: #e7f9f5;
 }
 
-.contents {
-  background-color: #fff;
+.content {
+  margin: 50px 0 0 0;
 }
 
 .text__field {

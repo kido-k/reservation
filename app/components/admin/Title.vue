@@ -48,6 +48,7 @@ export default {
   border-radius: 5px;
 }
 .form-title {
+  width: 50%;
 }
 .form-detail {
   margin: 30px 0 0 0;
