@@ -9,7 +9,7 @@
           </div>
           <v-layout>
             <v-text-field class="text__field" flat solo hide-details>{{
-              formTitle
+              formMain.title
             }}</v-text-field>
           </v-layout>
         </div>
@@ -23,7 +23,7 @@
               solo
               hide-details
               class="text__area"
-              :value="formDetail"
+              :value="formMain.detail"
             ></v-textarea>
           </v-layout>
         </div>
@@ -35,12 +35,13 @@
 <script>
 export default {
   data() {
-    return {
-      formTitle: '',
-      formDetail: ''
-    }
+    return {}
   },
-  computed: {}
+  computed: {
+    formMain() {
+      return this.$store.getters['form/getMainData']
+    }
+  }
 }
 </script>
 

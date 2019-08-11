@@ -7,7 +7,7 @@
       <v-layout class="name__content">
         <v-flex xs12 sm3 class="check-box">
           <v-checkbox
-            v-model="displayNameKana"
+            v-model="formNameKana.displayNameKana"
             class="mx-2"
             color="blue"
           ></v-checkbox>
@@ -18,11 +18,11 @@
               <label for="">セイ</label>
               <v-text-field
                 class="text__field"
-                :placeholder="familyNamePlaceHolder"
+                :placeholder="formNameKana.familyNamePlaceHolder"
                 flat
                 solo
                 hide-details
-                >{{ familyNameValue }}</v-text-field
+                >{{ formNameKana.familyNameValue }}</v-text-field
               >
             </div>
             <div class="name-margin"></div>
@@ -30,11 +30,11 @@
               <label for="">メイ</label>
               <v-text-field
                 class="text__field"
-                :placeholder="firstNamePlaceHolder"
+                :placeholder="formNameKana.firstNamePlaceHolder"
                 flat
                 solo
                 hide-details
-                >{{ firstNameValue }}</v-text-field
+                >{{ formNameKana.firstNameValue }}</v-text-field
               >
             </div>
           </v-layout>
@@ -47,15 +47,13 @@
 <script>
 export default {
   data() {
-    return {
-      displayNameKana: true,
-      familyNameValue: '',
-      familyNamePlaceHolder: 'タナカ',
-      firstNameValue: '',
-      firstNamePlaceHolder: 'タロウ'
-    }
+    return {}
   },
-  computed: {}
+  computed: {
+    formNameKana() {
+      return this.$store.getters['form/getNameKanaData']
+    }
+  }
 }
 </script>
 

@@ -8,7 +8,7 @@
         <v-layout class="mail__content">
           <v-flex xs12 sm3 class="check-box">
             <v-checkbox
-              v-model="diplayMail"
+              v-model="formMail.displayMail"
               class="mx-2"
               color="blue"
             ></v-checkbox>
@@ -16,7 +16,7 @@
           <v-flex xs12 sm6>
             <label for="">メールアドレス</label>
             <v-text-field class="text__field" flat solo hide-details>{{
-              mailAdress
+              formMail.mailAddress
             }}</v-text-field>
           </v-flex>
         </v-layout>
@@ -28,12 +28,13 @@
 <script>
 export default {
   data() {
-    return {
-      diplayMail: true,
-      mailAdress: ''
-    }
+    return {}
   },
-  computed: {}
+  computed: {
+    formMail() {
+      return this.$store.getters['form/getMailData']
+    }
+  }
 }
 </script>
 

@@ -3,20 +3,23 @@
     <FormTitle class="content"></FormTitle>
     <Name class="content"></Name>
     <NameKana class="content"></NameKana>
-    <Adress class="content"></Adress>
+    <Address class="content"></Address>
     <Telephone class="content"></Telephone>
-    <MailAdress class="content"></MailAdress>
+    <Mail class="content"></Mail>
     <Finish class="content"></Finish>
+    <v-btn color="blue" dark @click="saveFormSetting">保存</v-btn>
   </section>
 </template>
 
 <script>
+import firebase from '~/plugins/firebase'
+
 import FormTitle from '~/components/admin/FormTitle.vue'
 import Name from '~/components/admin/Name.vue'
-import NameKana from '~/components/admin/Name_Kana.vue'
-import Adress from '~/components/admin/Adress.vue'
+import NameKana from '~/components/admin/NameKana.vue'
+import Address from '~/components/admin/Address.vue'
 import Telephone from '~/components/admin/Telephone.vue'
-import MailAdress from '~/components/admin/MailAdress.vue'
+import Mail from '~/components/admin/Mail.vue'
 import Finish from '~/components/admin/Finish.vue'
 
 export default {
@@ -24,9 +27,9 @@ export default {
     FormTitle,
     Name,
     NameKana,
-    Adress,
+    Address,
     Telephone,
-    MailAdress,
+    Mail,
     Finish
   },
   data() {
@@ -37,16 +40,31 @@ export default {
   computed: {
     isAuth() {
       return this.$store.getters.isAuth
+    },
+    formData() {
+      return this.$store.getters['form/getFormData']
     }
   },
   mounted() {
     setTimeout(() => {
       if (!this.isAuth) {
-        // ログインしていなかったら飛ぶページを設定
         this.$router.push('login')
       }
       this.loaded = true
     }, 0)
+  },
+  methods: {
+    saveFormSetting() {
+      const newFormKey = firebase
+        .database()
+        .ref()
+        .child('form')
+        .push().key
+      firebase
+        .database()
+        .ref('form/' + newFormKey)
+        .set({ content: this.formData })
+    }
   }
 }
 </script>

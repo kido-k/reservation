@@ -1,14 +1,14 @@
 <template>
   <section>
-    <v-card class="adress-wrapper">
+    <v-card class="address-wrapper">
       <div>
         <div>
           <span>郵便番号</span>
         </div>
-        <v-layout class="adress-contents">
+        <v-layout class="address-contents">
           <v-flex xs12 sm3 class="check-box">
             <v-checkbox
-              v-model="diplayAdress"
+              v-model="formAddress.displayAddress"
               class="mx-2"
               color="blue"
             ></v-checkbox>
@@ -18,7 +18,7 @@
               <v-flex xs12 sm6>
                 <label for="">郵便番号</label>
                 <v-text-field class="text__field" flat solo hide-details>{{
-                  zipCode
+                  formAddress.zipCode
                 }}</v-text-field>
               </v-flex>
             </v-layout>
@@ -26,7 +26,7 @@
               <v-flex xs12 sm6>
                 <label for="">都道府県</label>
                 <v-text-field class="text__field" flat solo hide-details>{{
-                  prefecture
+                  formAddress.prefecture
                 }}</v-text-field>
               </v-flex>
             </v-layout>
@@ -34,7 +34,7 @@
               <v-flex>
                 <label for="">市区町村</label>
                 <v-text-field class="text__field" flat solo hide-details>{{
-                  city
+                  formAddress.city
                 }}</v-text-field>
               </v-flex>
             </v-layout>
@@ -42,7 +42,7 @@
               <v-flex>
                 <label for="">建物名・部屋番号</label>
                 <v-text-field class="text__field" flat solo hide-details>{{
-                  building
+                  formAddress.building
                 }}</v-text-field>
               </v-flex>
             </v-layout>
@@ -56,24 +56,22 @@
 <script>
 export default {
   data() {
-    return {
-      diplayAdress: true,
-      zipCode: '',
-      prefecture: '',
-      city: '',
-      building: ''
-    }
+    return {}
   },
-  computed: {}
+  computed: {
+    formAddress() {
+      return this.$store.getters['form/getAddressData']
+    }
+  }
 }
 </script>
 
 <style lang="scss" scope>
-.adress-wrapper {
+.address-wrapper {
   padding: 20px;
   border-radius: 5px;
 }
-.adress-contents {
+.address-contents {
   margin: 10px 20px;
 }
 .zip-code__content {

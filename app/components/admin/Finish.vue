@@ -13,7 +13,7 @@
               solo
               hide-details
               class="text__area"
-              :value="finishMessage"
+              :value="formFinish.finishMessage"
             ></v-textarea>
           </v-layout>
         </div>
@@ -23,7 +23,7 @@
           </div>
           <v-layout>
             <v-text-field class="text__field" flat solo hide-details>{{
-              finishButton
+              formFinish.finishButton
             }}</v-text-field>
           </v-layout>
         </div>
@@ -33,7 +33,7 @@
           </div>
           <v-layout>
             <v-text-field class="text__field" flat solo hide-details>{{
-              finishUrl
+              formFinish.finishUrl
             }}</v-text-field>
           </v-layout>
         </div>
@@ -45,13 +45,13 @@
 <script>
 export default {
   data() {
-    return {
-      finishMessage: '',
-      finishButton: '',
-      finishUrl: ''
-    }
+    return {}
   },
-  computed: {}
+  computed: {
+    formFinish() {
+      return this.$store.getters['form/getFinishData']
+    }
+  }
 }
 </script>
 

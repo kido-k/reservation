@@ -7,7 +7,7 @@
       <v-layout class="name__content">
         <v-flex xs12 sm3 class="check-box">
           <v-checkbox
-            v-model="displayName"
+            v-model="formName.displayName"
             class="mx-2"
             color="blue"
           ></v-checkbox>
@@ -18,11 +18,11 @@
               <label for="">姓</label>
               <v-text-field
                 class="text__field"
-                :placeholder="familyNamePlaceHolder"
+                :placeholder="formName.familyNamePlaceHolder"
                 flat
                 solo
                 hide-details
-                >{{ familyNameValue }}</v-text-field
+                >{{ formName.familyNameValue }}</v-text-field
               >
             </div>
             <div class="name-margin"></div>
@@ -30,11 +30,11 @@
               <label for="">名</label>
               <v-text-field
                 class="text__field"
-                :placeholder="firstNamePlaceHolder"
+                :placeholder="formName.firstNamePlaceHolder"
                 flat
                 solo
                 hide-details
-                >{{ firstNameValue }}</v-text-field
+                >{{ formName.firstNameValue }}</v-text-field
               >
             </div>
           </v-layout>
@@ -47,15 +47,13 @@
 <script>
 export default {
   data() {
-    return {
-      displayName: true,
-      familyNameValue: '',
-      familyNamePlaceHolder: '田中',
-      firstNameValue: '',
-      firstNamePlaceHolder: '太郎'
-    }
+    return {}
   },
-  computed: {}
+  computed: {
+    formName() {
+      return this.$store.getters['form/getNameData']
+    }
+  }
 }
 </script>
 

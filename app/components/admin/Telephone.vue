@@ -8,7 +8,7 @@
         <v-layout xs12 class="telephone__content">
           <v-flex xs12 sm3 class="check-box">
             <v-checkbox
-              v-model="displayTelephone"
+              v-model="formTelephone.displayTelephone"
               class="mx-2"
               color="blue"
             ></v-checkbox>
@@ -16,7 +16,7 @@
           <v-flex xs12 sm6>
             <label for="">電話番号</label>
             <v-text-field class="text__field" flat solo hide-details>{{
-              telephone
+              formTelephone.telephone
             }}</v-text-field>
           </v-flex>
         </v-layout>
@@ -28,12 +28,13 @@
 <script>
 export default {
   data() {
-    return {
-      displayTelephone: true,
-      telephone: ''
-    }
+    return {}
   },
-  computed: {}
+  computed: {
+    formTelephone() {
+      return this.$store.getters['form/getTelephoneData']
+    }
+  }
 }
 </script>
 
