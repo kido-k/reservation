@@ -7,15 +7,19 @@ export default {
     displayName: true,
     familyNameLabel: '姓',
     familyNamePlaceHolder: '田中',
+    familyNameRequired: true,
     firstNameLabel: '名',
-    firstNamePlaceHolder: '太郎'
+    firstNamePlaceHolder: '太郎',
+    firstNameRequired: true
   },
   nameKana: {
     displayNameKana: true,
     familyNameLabel: 'セイ',
     familyNamePlaceHolder: 'タナカ',
+    familyNameRequired: true,
     firstNameLabel: 'メイ',
-    firstNamePlaceHolder: 'タロウ'
+    firstNamePlaceHolder: 'タロウ',
+    firstNameRequired: true
   },
   address: {
     displayAddress: true,
