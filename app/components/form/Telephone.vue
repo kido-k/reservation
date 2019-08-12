@@ -8,9 +8,14 @@
         <v-layout class="telephone__content">
           <v-flex>
             <label for="">電話番号</label>
-            <v-text-field class="text__field" flat solo hide-details>{{
-              formTelephone.telephone
-            }}</v-text-field>
+            <v-text-field
+              v-model="answerData.telephone.telephone"
+              class="text__field"
+              :required="formTelephone.requiredTelephone"
+              flat
+              solo
+              hide-details
+            ></v-text-field>
           </v-flex>
         </v-layout>
       </div>
@@ -26,6 +31,9 @@ export default {
   computed: {
     formTelephone() {
       return this.$store.getters['form/getTelephoneData']
+    },
+    answerData() {
+      return this.$store.getters['answer/getAnswerData']
     }
   }
 }

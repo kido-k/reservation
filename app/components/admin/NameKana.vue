@@ -18,13 +18,15 @@
               <label for="">セイ</label>
               <v-text-field
                 class="text__field"
-                :placeholder="formNameKana.familyNamePlaceHolder"
+                :placeholder="formNameKana.familyNameKanaPlaceHolder"
                 flat
                 solo
                 hide-details
-                >{{ formNameKana.familyNameValue }}</v-text-field
+              ></v-text-field>
+              <p
+                v-show="formNameKana.familyNameKanaRequired"
+                class="required-text"
               >
-              <p v-show="formNameKana.familyNameRequired" class="required-text">
                 ※入力必須
               </p>
             </div>
@@ -33,13 +35,15 @@
               <label for="">メイ</label>
               <v-text-field
                 class="text__field"
-                :placeholder="formNameKana.firstNamePlaceHolder"
+                :placeholder="formNameKana.firstNameKanaPlaceHolder"
                 flat
                 solo
                 hide-details
-                >{{ formNameKana.firstNameValue }}</v-text-field
+              ></v-text-field>
+              <p
+                v-show="formNameKana.firstNameKanaRequired"
+                class="required-text"
               >
-              <p v-show="formNameKana.familyNameRequired" class="required-text">
                 ※入力必須
               </p>
             </div>
@@ -56,7 +60,7 @@
                   <v-flex xs12>
                     <label>セイ（プレースホルダー）</label>
                     <v-text-field
-                      v-model="formNameKana.familyNamePlaceHolder"
+                      v-model="formNameKana.familyNameKanaPlaceHolder"
                       class="text__field"
                       flat
                       solo
@@ -65,7 +69,7 @@
                   </v-flex>
                   <v-flex xs12 sm1>
                     <v-checkbox
-                      v-model="formNameKana.familyNameRequired"
+                      v-model="formNameKana.familyNameKanaRequired"
                       class="mx-2"
                       color="blue"
                     ></v-checkbox>
@@ -76,7 +80,7 @@
                   <v-flex xs12>
                     <label>メイ（プレースホルダー）</label>
                     <v-text-field
-                      v-model="formNameKana.firstNamePlaceHolder"
+                      v-model="formNameKana.firstNameKanaPlaceHolder"
                       class="text__field"
                       flat
                       solo
@@ -85,7 +89,7 @@
                   </v-flex>
                   <v-flex xs12 sm1>
                     <v-checkbox
-                      v-model="formNameKana.firstNameRequired"
+                      v-model="formNameKana.firstNameKanaRequired"
                       class="mx-2"
                       color="blue"
                     ></v-checkbox>

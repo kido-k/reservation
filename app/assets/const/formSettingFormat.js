@@ -14,27 +14,30 @@ export default {
   },
   nameKana: {
     displayNameKana: true,
-    familyNameLabel: 'セイ',
-    familyNamePlaceHolder: 'タナカ',
-    familyNameRequired: true,
-    firstNameLabel: 'メイ',
-    firstNamePlaceHolder: 'タロウ',
-    firstNameRequired: true
+    familyNameKanaLabel: 'セイ',
+    familyNameKanaPlaceHolder: 'タナカ',
+    familyNameKanaRequired: true,
+    firstNameKanaLabel: 'メイ',
+    firstNameKanaPlaceHolder: 'タロウ',
+    firstNameKanaRequired: true
   },
   address: {
     displayAddress: true,
-    zipCode: '',
-    prefecture: '',
-    city: '',
-    building: ''
+    requiredAddress: true,
+    zipCodePlaceHolder: '',
+    prefecturePlaceHolder: '',
+    cityPlaceHolder: '',
+    buildingPlaceHolder: ''
   },
   telephone: {
     displayTelephone: true,
-    telephone: ''
+    telephonePlaceHolder: '',
+    requiredTelephone: true
   },
   mail: {
     displayMail: true,
-    mailAddress: ''
+    mailAddressPlaceHolder: '',
+    requiredMain: true
   },
   finish: {
     finishMessage: '',

@@ -10,33 +10,50 @@
             <v-layout class="zip-code__content">
               <v-flex xs12 sm6>
                 <label for="">郵便番号</label>
-                <v-text-field class="text__field" flat solo hide-details>{{
-                  formAddress.zipCode
-                }}</v-text-field>
+                <v-text-field
+                  v-model="answerData.address.zipCode"
+                  class="text__field"
+                  flat
+                  solo
+                  hide-details
+                ></v-text-field>
               </v-flex>
             </v-layout>
             <v-layout class="prefecture__content">
               <v-flex xs12 sm6>
-                <label for="">都道府県</label>
-                <v-text-field class="text__field" flat solo hide-details>{{
-                  formAddress.prefecture
-                }}</v-text-field>
+                <label>都道府県</label>
+                <v-text-field
+                  v-model="answerData.address.prefecture"
+                  class="text__field"
+                  flat
+                  solo
+                  hide-details
+                ></v-text-field>
               </v-flex>
             </v-layout>
             <v-layout class="city__content">
               <v-flex>
-                <label for="">市区町村</label>
-                <v-text-field class="text__field" flat solo hide-details>{{
-                  formAddress.city
-                }}</v-text-field>
+                <label>市区町村</label>
+                <v-text-field
+                  v-model="answerData.address.city"
+                  class="text__field"
+                  flat
+                  solo
+                  hide-details
+                ></v-text-field>
               </v-flex>
             </v-layout>
             <v-layout class="building__content">
               <v-flex>
                 <label for="">建物名・部屋番号</label>
-                <v-text-field class="text__field" flat solo hide-details>{{
-                  formAddress.building
-                }}</v-text-field>
+                <v-text-field
+                  v-model="answerData.address.building"
+                  class="text__field"
+                  flat
+                  solo
+                  hide-details
+                >
+                </v-text-field>
               </v-flex>
             </v-layout>
           </v-flex>
@@ -54,6 +71,9 @@ export default {
   computed: {
     formAddress() {
       return this.$store.getters['form/getAddressData']
+    },
+    answerData() {
+      return this.$store.getters['answer/getAnswerData']
     }
   }
 }

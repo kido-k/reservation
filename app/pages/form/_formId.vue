@@ -1,19 +1,24 @@
 <template>
   <section v-if="loaded" class="form-wrapper">
     <FormTitle class="form-title"></FormTitle>
-    <div class="form-content">
+    <form class="form-content">
       <Name class="content"></Name>
       <NameKana class="content"></NameKana>
       <Address class="content"></Address>
       <Telephone class="content"></Telephone>
       <Mail class="content"></Mail>
-      <Finish class="content"></Finish>
-    </div>
+      <div class="save-content">
+        <v-btn class="save-btn" color="blue" dark @click="sendAnswer()">{{
+          formData.finish.finishButton
+        }}</v-btn>
+      </div>
+    </form>
   </section>
 </template>
 
 <script>
 import firebase from '~/plugins/firebase'
+import formAnswerFormat from '~/assets/const/formAnswerFormat'
 
 import FormTitle from '~/components/form/FormTitle.vue'
 import Name from '~/components/form/Name.vue'
@@ -21,7 +26,6 @@ import NameKana from '~/components/form/NameKana.vue'
 import Address from '~/components/form/Address.vue'
 import Telephone from '~/components/form/Telephone.vue'
 import Mail from '~/components/form/Mail.vue'
-import Finish from '~/components/form/Finish.vue'
 
 export default {
   components: {
@@ -30,8 +34,7 @@ export default {
     NameKana,
     Address,
     Telephone,
-    Mail,
-    Finish
+    Mail
   },
   data() {
     return {
@@ -50,6 +53,9 @@ export default {
     },
     formData() {
       return this.$store.getters['form/getFormData']
+    },
+    answerData() {
+      return this.$store.getters['answer/getAnswerData']
     }
   },
   asyncData({ store, params }) {
@@ -61,6 +67,7 @@ export default {
         this.$router.push('login')
       }
       this.setFormData()
+      this.setAnswerData()
       this.loaded = true
     }, 0)
   },
@@ -74,14 +81,15 @@ export default {
         this.$store.commit('form/setFormData', snapshot.data())
       })
     },
-    async saveFormSetting() {
+    setAnswerData() {
+      this.$store.commit('answer/setAnswerData', formAnswerFormat)
+    },
+    async sendAnswer() {
       const db = firebase.firestore()
       const formData = await db.doc(
-        `users/${this.userData.uid}/forms/${this.formId}`
+        `users/${this.userData.uid}/forms/${this.formId}/answer/${this.userData.uid}`
       )
-      await formData.update({
-        content: this.formData
-      })
+      await formData.set(this.answerData)
     }
   }
 }
@@ -114,7 +122,7 @@ export default {
 }
 
 .save-content {
-  margin: 20px 0 0 0;
+  margin: 50px 0 0 0;
   text-align: center;
 }
 .save-btn {

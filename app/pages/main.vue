@@ -21,7 +21,7 @@
 
 <script>
 import firebase from '~/plugins/firebase'
-import formFormat from '~/assets/const/formFormat'
+import formSettingFormat from '~/assets/const/formSettingFormat'
 
 export default {
   data() {
@@ -78,7 +78,7 @@ export default {
 
       userForms
         .add({
-          content: formFormat,
+          content: formSettingFormat,
           createdAt: new Date()
         })
         .then(res => {

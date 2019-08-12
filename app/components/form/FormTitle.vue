@@ -14,6 +14,9 @@ export default {
   computed: {
     formMain() {
       return this.$store.getters['form/getMainData']
+    },
+    answerData() {
+      return this.$store.getters['answer/getAnswerData']
     }
   }
 }

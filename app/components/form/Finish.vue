@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     sendData() {
-      this.$router.push('/form/finish')
+      // this.$router.push('/form/finish')
     }
   }
 }

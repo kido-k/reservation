@@ -10,8 +10,11 @@
             <div class="name__input">
               <label>{{ formName.familyNameLabel }}</label>
               <v-text-field
+                v-model="answerData.name.familyName"
                 class="text__field"
                 :placeholder="formName.familyNamePlaceHolder"
+                :required="formName.familyNameRequired"
+                :error-messages="nameErrors"
                 flat
                 solo
                 hide-details
@@ -21,8 +24,11 @@
             <div>
               <label>{{ formName.firstNameLabel }}</label>
               <v-text-field
+                v-model="answerData.name.firstName"
                 class="text__field"
                 :placeholder="formName.firstNamePlaceHolder"
+                :required="formName.firstNameRequired"
+                :error-messages="nameErrors"
                 flat
                 solo
                 hide-details
@@ -38,11 +44,16 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      nameErrors: '名前を入力して下さい'
+    }
   },
   computed: {
     formName() {
       return this.$store.getters['form/getNameData']
+    },
+    answerData() {
+      return this.$store.getters['answer/getAnswerData']
     }
   }
 }

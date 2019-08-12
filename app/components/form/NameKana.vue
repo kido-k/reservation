@@ -10,25 +10,27 @@
             <div>
               <label for="">セイ</label>
               <v-text-field
+                v-model="answerData.nameKana.familyNameKana"
                 class="text__field"
-                :placeholder="formNameKana.familyNamePlaceHolder"
+                :placeholder="formNameKana.familyNameKanaPlaceHolder"
+                :required="formNameKana.familyNameKanaRequired"
                 flat
                 solo
                 hide-details
-                >{{ formNameKana.familyNameValue }}</v-text-field
-              >
+              ></v-text-field>
             </div>
             <div class="name-margin"></div>
             <div>
               <label for="">メイ</label>
               <v-text-field
+                v-model="answerData.nameKana.firstNameKana"
                 class="text__field"
-                :placeholder="formNameKana.firstNamePlaceHolder"
+                :placeholder="formNameKana.firstNameKanaPlaceHolder"
+                :required="formNameKana.firstNameKanaRequired"
                 flat
                 solo
                 hide-details
-                >{{ formNameKana.firstNameValue }}</v-text-field
-              >
+              ></v-text-field>
             </div>
           </v-layout>
         </v-flex>
@@ -45,6 +47,9 @@ export default {
   computed: {
     formNameKana() {
       return this.$store.getters['form/getNameKanaData']
+    },
+    answerData() {
+      return this.$store.getters['answer/getAnswerData']
     }
   }
 }

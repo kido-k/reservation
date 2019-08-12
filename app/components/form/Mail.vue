@@ -8,9 +8,14 @@
         <v-layout class="mail__content">
           <v-flex>
             <label for="">メールアドレス</label>
-            <v-text-field class="text__field" flat solo hide-details>{{
-              formMail.mailAddress
-            }}</v-text-field>
+            <v-text-field
+              v-model="answerData.mail.mailAddressPlaceHolder"
+              class="text__field"
+              flat
+              solo
+              hide-details
+              :required="formMail.requiredMain"
+            ></v-text-field>
           </v-flex>
         </v-layout>
       </div>
@@ -26,6 +31,9 @@ export default {
   computed: {
     formMail() {
       return this.$store.getters['form/getMailData']
+    },
+    answerData() {
+      return this.$store.getters['answer/getAnswerData']
     }
   }
 }
