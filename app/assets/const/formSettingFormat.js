@@ -37,7 +37,7 @@ export default {
   mail: {
     displayMail: true,
     mailAddressPlaceHolder: '',
-    requiredMain: true
+    requiredMail: true
   },
   finish: {
     finishMessage: '',

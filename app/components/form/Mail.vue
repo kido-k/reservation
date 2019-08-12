@@ -11,10 +11,11 @@
             <v-text-field
               v-model="answerData.mail.mailAddressPlaceHolder"
               class="text__field"
+              :required="formMail.requiredMain"
+              :placeholder="formMail.mailAddressPlaceHolder"
               flat
               solo
               hide-details
-              :required="formMail.requiredMain"
             ></v-text-field>
           </v-flex>
         </v-layout>

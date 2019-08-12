@@ -13,6 +13,7 @@
                 <v-text-field
                   v-model="answerData.address.zipCode"
                   class="text__field"
+                  :placeholder="formAddress.zipCodePlaceHolder"
                   flat
                   solo
                   hide-details
@@ -25,6 +26,7 @@
                 <v-text-field
                   v-model="answerData.address.prefecture"
                   class="text__field"
+                  :placeholder="formAddress.prefecturePlaceHolder"
                   flat
                   solo
                   hide-details
@@ -37,6 +39,7 @@
                 <v-text-field
                   v-model="answerData.address.city"
                   class="text__field"
+                  :placeholder="formAddress.cityPlaceHolder"
                   flat
                   solo
                   hide-details
@@ -49,6 +52,7 @@
                 <v-text-field
                   v-model="answerData.address.building"
                   class="text__field"
+                  :placeholder="formAddress.buildingPlaceHolder"
                   flat
                   solo
                   hide-details

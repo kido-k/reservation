@@ -12,6 +12,7 @@
               v-model="answerData.telephone.telephone"
               class="text__field"
               :required="formTelephone.requiredTelephone"
+              :placeholder="formTelephone.telephonePlaceHolder"
               flat
               solo
               hide-details
