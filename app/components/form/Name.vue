@@ -15,7 +15,6 @@
                 flat
                 solo
                 hide-details
-                readonly
               ></v-text-field>
             </div>
             <div class="name-margin"></div>
@@ -27,7 +26,6 @@
                 flat
                 solo
                 hide-details
-                readonly
               ></v-text-field>
             </div>
           </v-layout>

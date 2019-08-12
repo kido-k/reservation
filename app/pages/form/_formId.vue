@@ -99,8 +99,10 @@ export default {
 }
 
 .form-content {
-  padding: 0 25%;
+  padding: 0 50px 50px 50px;
   min-width: 600px;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .content {

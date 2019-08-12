@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <div>
     <v-card class="form-wrapper">
       <span>フォーム設定</span>
       <div class="form-contents">
@@ -34,7 +34,7 @@
         </div>
       </div>
     </v-card>
-  </section>
+  </div>
 </template>
 
 <script>
