@@ -34,36 +34,54 @@ export default {
   },
   data() {
     return {
-      loaded: false
+      loaded: false,
+      formIdddddd: ''
     }
   },
   computed: {
     isAuth() {
       return this.$store.getters.isAuth
     },
+    userData() {
+      return this.$store.getters.userData
+    },
+    formId() {
+      return this.$store.getters['form/getFormId']
+    },
     formData() {
       return this.$store.getters['form/getFormData']
     }
+  },
+  asyncData({ store, params }) {
+    store.commit('form/setFormId', params.formId)
   },
   mounted() {
     setTimeout(() => {
       if (!this.isAuth) {
         this.$router.push('login')
       }
+      this.setFormData()
       this.loaded = true
     }, 0)
   },
   methods: {
-    saveFormSetting() {
-      const newFormKey = firebase
-        .database()
-        .ref()
-        .child('form')
-        .push().key
-      firebase
-        .database()
-        .ref('form/' + newFormKey)
-        .set({ content: this.formData })
+    async setFormData() {
+      const db = firebase.firestore()
+      const formData = await db.doc(
+        `users/${this.userData.uid}/forms/${this.formId}`
+      )
+      await formData.onSnapshot(snapshot => {
+        this.$store.commit('form/setFormData', snapshot.data())
+      })
+    },
+    async saveFormSetting() {
+      const db = firebase.firestore()
+      const formData = await db.doc(
+        `users/${this.userData.uid}/forms/${this.formId}`
+      )
+      await formData.update({
+        content: this.formData
+      })
     }
   }
 }

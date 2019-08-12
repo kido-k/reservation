@@ -1,73 +1,47 @@
+export const strict = false
+
 export const state = () => ({
-  form: {
-    main: {
-      title: '',
-      detail: ''
-    },
-    name: {
-      displayName: true,
-      familyNameLabel: '姓',
-      familyNamePlaceHolder: '田中',
-      firstNameLabel: '名',
-      firstNamePlaceHolder: '太郎'
-    },
-    nameKana: {
-      displayNameKana: true,
-      familyNameLabel: 'セイ',
-      familyNamePlaceHolder: 'タナカ',
-      firstNameLabel: 'メイ',
-      firstNamePlaceHolder: 'タロウ'
-    },
-    address: {
-      displayAddress: true,
-      zipCode: '',
-      prefecture: '',
-      city: '',
-      building: ''
-    },
-    telephone: {
-      displayTelephone: true,
-      telephone: ''
-    },
-    mail: {
-      displayMail: true,
-      mailAddress: ''
-    },
-    finish: {
-      finishMessage: '',
-      finishButton: '',
-      finishUrl: ''
-    }
-  }
+  formId: '',
+  formData: {}
 })
 
 export const getters = {
+  getFormId(state) {
+    return state.formId
+  },
   getFormData(state) {
-    return state.form
+    return state.formData
   },
   getMainData(state) {
-    return state.form.main
+    return state.formData.main
   },
   getNameData(state) {
-    return state.form.name
+    return state.formData.name
   },
   getNameKanaData(state) {
-    return state.form.nameKana
+    return state.formData.nameKana
   },
   getAddressData(state) {
-    return state.form.address
+    return state.formData.address
   },
   getTelephoneData(state) {
-    return state.form.telephone
+    return state.formData.telephone
   },
   getMailData(state) {
-    return state.form.mail
+    return state.formData.mail
   },
   getFinishData(state) {
-    return state.form.finish
+    return state.formData.finish
   }
 }
 
-export const mutations = {}
+export const mutations = {
+  setFormId(state, formId) {
+    state.formId = formId
+  },
+  setFormData(state, payload) {
+    state.formData = payload.content
+  }
+}
 
 export const actions = {}
