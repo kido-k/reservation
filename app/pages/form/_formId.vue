@@ -1,16 +1,13 @@
 <template>
-  <section v-if="loaded" class="wrapper">
-    <FormTitle class="content"></FormTitle>
-    <Name class="content"></Name>
-    <NameKana class="content"></NameKana>
-    <Address class="content"></Address>
-    <Telephone class="content"></Telephone>
-    <Mail class="content"></Mail>
-    <Finish class="content"></Finish>
-    <div class="save-content">
-      <v-btn class="save-btn" color="blue" dark @click="saveFormSetting"
-        >保存</v-btn
-      >
+  <section v-if="loaded" class="form-wrapper">
+    <FormTitle class="form-title"></FormTitle>
+    <div class="form-content">
+      <Name class="content"></Name>
+      <NameKana class="content"></NameKana>
+      <Address class="content"></Address>
+      <Telephone class="content"></Telephone>
+      <Mail class="content"></Mail>
+      <Finish class="content"></Finish>
     </div>
   </section>
 </template>
@@ -18,13 +15,13 @@
 <script>
 import firebase from '~/plugins/firebase'
 
-import FormTitle from '~/components/admin/FormTitle.vue'
-import Name from '~/components/admin/Name.vue'
-import NameKana from '~/components/admin/NameKana.vue'
-import Address from '~/components/admin/Address.vue'
-import Telephone from '~/components/admin/Telephone.vue'
-import Mail from '~/components/admin/Mail.vue'
-import Finish from '~/components/admin/Finish.vue'
+import FormTitle from '~/components/form/FormTitle.vue'
+import Name from '~/components/form/Name.vue'
+import NameKana from '~/components/form/NameKana.vue'
+import Address from '~/components/form/Address.vue'
+import Telephone from '~/components/form/Telephone.vue'
+import Mail from '~/components/form/Mail.vue'
+import Finish from '~/components/form/Finish.vue'
 
 export default {
   components: {
@@ -38,8 +35,7 @@ export default {
   },
   data() {
     return {
-      loaded: false,
-      formIdddddd: ''
+      loaded: false
     }
   },
   computed: {
@@ -92,11 +88,19 @@ export default {
 </script>
 
 <style lang="scss" scope>
-.wrapper {
+.form-wrapper {
   width: 100%;
   height: 100%;
-  padding: 10%;
-  background-color: #e7f9f5;
+  background-color: #e2e2e2;
+}
+
+.form-title {
+  margin: 30px 0;
+}
+
+.form-content {
+  padding: 0 25%;
+  min-width: 600px;
 }
 
 .content {
@@ -106,6 +110,7 @@ export default {
 .text__field {
   border: solid 1px #d9d9d9;
 }
+
 .save-content {
   margin: 20px 0 0 0;
   text-align: center;

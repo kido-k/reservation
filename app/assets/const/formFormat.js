@@ -38,7 +38,7 @@ export default {
   },
   finish: {
     finishMessage: '',
-    finishButton: '',
+    finishButton: '送信',
     finishUrl: ''
   }
 }
