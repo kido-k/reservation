@@ -8,9 +8,14 @@
             <span>フォーム名</span>
           </div>
           <v-layout>
-            <v-text-field class="text__field" flat solo hide-details>{{
-              formMain.title
-            }}</v-text-field>
+            <v-text-field
+              v-model="formMain.title"
+              class="text__field"
+              flat
+              solo
+              hide-details
+            >
+            </v-text-field>
           </v-layout>
         </div>
         <div>
@@ -19,11 +24,11 @@
           </div>
           <v-layout>
             <v-textarea
+              v-model="formMain.detail"
               flat
               solo
               hide-details
               class="text__area"
-              :value="formMain.detail"
             ></v-textarea>
           </v-layout>
         </div>

@@ -9,11 +9,11 @@
           </div>
           <v-layout>
             <v-textarea
+              v-model="formFinish.finishMessage"
               flat
               solo
               hide-details
               class="text__area"
-              :value="formFinish.finishMessage"
             ></v-textarea>
           </v-layout>
         </div>
@@ -22,9 +22,14 @@
             <span>完了ボタン名</span>
           </div>
           <v-layout>
-            <v-text-field class="text__field" flat solo hide-details>{{
-              formFinish.finishButton
-            }}</v-text-field>
+            <v-text-field
+              v-model="formFinish.finishButton"
+              class="text__field"
+              flat
+              solo
+              hide-details
+            >
+            </v-text-field>
           </v-layout>
         </div>
         <div>
@@ -32,9 +37,14 @@
             <span>完了後URL</span>
           </div>
           <v-layout>
-            <v-text-field class="text__field" flat solo hide-details>{{
-              formFinish.finishUrl
-            }}</v-text-field>
+            <v-text-field
+              v-model="formFinish.finishUrl"
+              class="text__field"
+              flat
+              solo
+              hide-details
+            >
+            </v-text-field>
           </v-layout>
         </div>
       </div>
