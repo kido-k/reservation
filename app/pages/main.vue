@@ -7,8 +7,8 @@
         </v-card>
         <div v-for="(form, index) in formList" :key="index">
           <v-card class="form-content">
-            <v-card-title>{{ form.title }}</v-card-title>
-            <v-card-text>{{ form.detail }}</v-card-text>
+            <v-card-title>{{ form.content.main.title }}</v-card-title>
+            <v-card-text>{{ form.content.main.detail }}</v-card-text>
             <v-card-actions>
               <v-btn text @click="moveEditForm(form.id)">編集</v-btn>
             </v-card-actions>
@@ -82,6 +82,7 @@ export default {
           createdAt: new Date()
         })
         .then(res => {
+          this.moveEditForm(res.id)
           console.log(res)
         })
         .catch(err => {
